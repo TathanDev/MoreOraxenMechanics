@@ -1,0 +1,13 @@
+name: MOM
+version: 1.0
+main: fr.tathan.mom.MOMPlugin
+api-version: 1.20
+depend: [Oraxen]
+author: TATHAN
+prefix: MOM
+description: This plugin add new Mechanics for Oraxen.
+
+commands:
+  version:
+    aliases: v
+    description: the MOM version
