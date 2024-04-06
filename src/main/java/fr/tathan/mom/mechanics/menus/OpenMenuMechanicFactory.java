@@ -19,8 +19,8 @@ public class OpenMenuMechanicFactory extends MechanicFactory  {
 
     @Override
     public Mechanic parse(ConfigurationSection configurationSection) {
-        OpenMenuMechanic mechanic = new OpenMenuMechanic(this, configurationSection);
-        addToImplemented(mechanic);
+        Mechanic mechanic = new OpenMenuMechanic(this, configurationSection);
+        this.addToImplemented(mechanic);
         return mechanic;
     }
 }

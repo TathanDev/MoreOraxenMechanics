@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'fr.tathan'
-version '1.0'
+version '1.1'
 
 repositories {
     mavenCentral()
@@ -16,6 +16,10 @@ repositories {
     maven {
         url = 'https://repo.extendedclip.com/content/repositories/public'
     }
+    flatDir{
+        dirs 'libs'
+    }
+
 
 }
 
@@ -23,7 +27,9 @@ dependencies {
     compileOnly 'org.spigotmc:spigot:1.20.4-R0.1-SNAPSHOT'
     compileOnly("com.github.oraxen:oraxen:1.172.0")
     compileOnly 'me.clip:placeholderapi:2.11.5'
-    compileOnly("com.extendedclip:deluxemenus:1.10.4")
+    //compileOnly("com.extendedclip:deluxemenus:1.10.4")
+    compileOnly(name:"DeluxeMenus-1.14.0", ext:"jar")
+    compileOnly(name:"zmenu-1.0.2.9", ext:"jar")
 
 }
 
