@@ -29,12 +29,10 @@ public class EffectsMechanic extends Mechanic {
                         break label132;
                     }
 
-                    Object barrierObject = var4.next();
+                    Object effectObject = var4.next();
 
-                    System.out.println("eeee " + barrierObject);
-                    if (barrierObject instanceof EffectConfiguration) {
-                        EffectConfiguration effectConfiguration = (EffectConfiguration)barrierObject;
-                        System.out.println("eeee " + effectConfiguration);
+                    if (effectObject instanceof EffectConfiguration) {
+                        EffectConfiguration effectConfiguration = (EffectConfiguration)effectObject;
 
                         try {
                             this.effects.add(new EffectConfiguration(effectConfiguration.effect(), effectConfiguration.duration(), effectConfiguration.amplifier()));
@@ -42,25 +40,20 @@ public class EffectsMechanic extends Mechanic {
                             Logs.logError("Invalid effectConfiguration location: " + effectConfiguration + " for item: " + this.getItemID());
                         }
                     }
-                    if (barrierObject instanceof Map) {
-                        Map<?, ?> barrierMap = (Map)barrierObject;
+                    if (effectObject instanceof Map) {
+                        Map<?, ?> effectMap = (Map)effectObject;
 
                         try {
-                            this.effects.add(EffectConfiguration.deserialize(barrierMap));
+                            this.effects.add(EffectConfiguration.deserialize(effectMap));
                         } catch (ClassCastException var13) {
-                            Logs.logError("Invalid barrier location: " + barrierMap + " for furniture: " + this.getItemID());
+                            Logs.logError("Invalid effect location: " + effectMap + " for item: " + this.getItemID());
                         }
 
                     }
 
                 }
             }
-        } else {
-            System.out.println("Sad " + this.getItemID());
         }
-
-        EffectConfiguration test = new EffectConfiguration("poison", 200, 2);
-        System.out.println("test config " + test);
     }
 
     public List<EffectConfiguration> getEffects() {
