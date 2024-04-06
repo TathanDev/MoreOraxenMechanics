@@ -3,6 +3,7 @@ package fr.tathan.mom;
 
 import fr.tathan.mom.mechanics.effect.EffectMechanicFactory;
 import fr.tathan.mom.mechanics.effectRange.EffectRangeMechanicFactory;
+import fr.tathan.mom.mechanics.effects.EffectsMechanicFactory;
 import fr.tathan.mom.mechanics.menus.OpenMenuMechanicFactory;
 import fr.tathan.mom.mechanics.trap.TrapBlockMechanicFactory;
 import io.th0rgal.oraxen.api.OraxenItems;
@@ -20,10 +21,11 @@ public class EventListeners implements Listener {
         MechanicsManager.registerMechanicFactory("effect", new EffectMechanicFactory("effect"), true);
         MechanicsManager.registerMechanicFactory("effect_range", new EffectRangeMechanicFactory("effect_range"), true);
         MechanicsManager.registerMechanicFactory("trap_block", new TrapBlockMechanicFactory("trap_block"), true);
+        MechanicsManager.registerMechanicFactory("effects", new EffectsMechanicFactory("effects"), true);
 
-        if(Bukkit.getPluginManager().isPluginEnabled("DeluxeMenus")) {
+        if(Bukkit.getPluginManager().isPluginEnabled("DeluxeMenus") || Bukkit.getPluginManager().isPluginEnabled("zMenu")) {
             MechanicsManager.registerMechanicFactory("menu_provider", new OpenMenuMechanicFactory("menu_provider"), true);
-            System.out.println("DeluxeMenus founded.");
+            System.out.println("DeluxeMenus or zMenu founded.");
         }
 
         OraxenItems.loadItems();

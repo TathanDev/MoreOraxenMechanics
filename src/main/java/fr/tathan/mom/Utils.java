@@ -2,6 +2,7 @@ package fr.tathan.mom;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import fr.tathan.mom.mechanics.EffectConfiguration;
 import fr.tathan.mom.mechanics.effect.EffectMechanic;
 import io.th0rgal.oraxen.utils.PotionUtils;
 import org.bukkit.Bukkit;
@@ -71,6 +72,15 @@ public class Utils {
         String effect = mechanic.getEffect();
         int duration = mechanic.getDuration();
         int amplifier = mechanic.getAmplifier();
+        if (PotionUtils.getEffectType(effect) == null) return null;
+
+        return new PotionEffect(PotionUtils.getEffectType(effect), duration, amplifier);
+    }
+
+    public static PotionEffect getPotionEffect(EffectConfiguration configuration) {
+        String effect = configuration.effect();
+        int duration = configuration.duration();
+        int amplifier = configuration.amplifier();
         if (PotionUtils.getEffectType(effect) == null) return null;
 
         return new PotionEffect(PotionUtils.getEffectType(effect), duration, amplifier);

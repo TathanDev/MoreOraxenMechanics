@@ -1,6 +1,5 @@
 package fr.tathan.mom;
 
-import fr.tathan.mom.commands.VersionCommand;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -9,7 +8,7 @@ import java.util.logging.Logger;
 
 public class MOMPlugin extends JavaPlugin {
 
-    static MOMPlugin main;
+    MOMPlugin main;
     @Override
     public void onEnable() {
         System.out.println("Plugin Activated");
@@ -17,14 +16,14 @@ public class MOMPlugin extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new EventListeners(), this);
 
-        getCommand("version").setExecutor(new VersionCommand());
+
     }
 
     public MOMPlugin() {
         main = this;
     }
 
-    public static MOMPlugin get() {
+    public MOMPlugin get() {
         return main;
     }
 
